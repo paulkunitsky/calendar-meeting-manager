@@ -1,0 +1,29 @@
+@import "~@progress/kendo-theme-bootstrap/scss/tabstrip"
+@import "../variables/theme_colors"
+
+.k-tabstrip
+  & > .k-tabstrip-items
+    font-family: 'Montserrat', sans-serif
+    font-size: 1.333rem
+    line-height: 1.333rem
+    border: none
+    .k-item
+      border: none
+      margin-bottom: 0
+      color: $color-labels
+      .k-link
+        padding: 0 15px
+        line-height: 2.5rem
+        user-select: none
+    & > .k-item.k-state-active
+      color: $tab-item-text
+      border-bottom-width: 2px
+      border-bottom-color: $dark-blue-icon
+      border-bottom-style: solid
+  .k-item:hover,
+  .k-item.k-state-hover
+    color: $tab-item-text
+    border: none
+  > .k-content
+    padding: 15px
+    border: none

@@ -1,0 +1,59 @@
+.form-labels-text-right
+  label
+    text-align: right
+
+.label-hint
+  position: relative
+  &::before
+    font-family: 'FontAwesome'
+    font-size: 150%
+    content: '\f059'
+    position: absolute
+    margin-top: -2px
+    margin-left: 3px
+    color: $blue-icon
+
+.input-validation-wrap
+  position: relative
+  display: flex
+  flex-grow: 1
+  &.fixed-with-psw-strength
+    margin-bottom: 18px
+    .psw-strength-bar-visibility
+      position: absolute
+      width: 100%
+
+  &::after
+    font-family: 'FontAwesome'
+    position: absolute
+    right: 10px
+    font-size: 1.6rem
+    height: 1.2em
+    margin-top: 0.13em
+    align-self: flex-start
+  &.is-valid input,
+  &.is-invalid input
+    padding-right: 28px
+  &.with-second-icon
+    &.is-valid,
+    &.is-invalid
+      &::after
+        background-color: $white
+        padding-left: 3px
+    &::after
+      right: 28px
+
+  &.is-invalid::after
+    content: '\f06a'
+    color: $red-icon
+  &.is-valid::after
+    content: '\f058'
+    color: $green-icon
+
+
+.invalid-feedback
+  color: $red-icon
+  font-size: 10px
+  .is-invalid + &
+    display: block
+

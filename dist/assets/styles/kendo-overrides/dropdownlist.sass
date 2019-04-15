@@ -1,0 +1,111 @@
+@import "~@progress/kendo-theme-bootstrap/scss/dropdownlist"
+@import "theme_colors.sass"
+
+.k-dropdown
+  width: auto
+  min-width: 120px
+  height: 26px
+  .k-dropdown-wrap
+    border-radius: 0
+    border: 1px solid $input-border
+    background: $input-background-color none
+    color: $dark-gray
+    box-shadow: inset 0 1px 3px 0 rgba(119, 119, 119, 0.15)
+    .k-input
+      height: 100%
+      box-shadow: none
+      font-weight: 600
+      color: $dark-gray
+      &:hover
+        border: none
+    .k-select
+      color: $dark-blue-icon
+      .k-icon.k-i-arrow-s
+        font-family: FontAwesome
+        font-size: 18px
+        text-rendering: auto
+        -webkit-font-smoothing: antialiased
+        -moz-osx-font-smoothing: grayscale
+        &:before
+          content: "\f107"
+    &.k-state-disabled
+      box-shadow: none
+      border: 1px dashed $input-border
+      opacity: 1
+      .k-input, .k-icon
+        opacity: 0.4
+    &[readonly=true]
+      box-shadow: none
+      background: rgba($input-background-color, 0.3)
+      border: 1px solid rgba($input-border, 0.3)
+      cursor: default
+      .k-icon
+        opacity: 0.3
+
+.k-form
+  .k-widget.k-dropdown.k-header
+    display: flex
+
+.k-i-search::before
+  content: '\f002'
+  font-family: FontAwesome
+  font-size: 16px
+
+.k-list-filter > .k-icon
+  display: flex
+  justify-content: flex-end
+  align-items: center
+  color: $dark-blue-icon
+
+//we insert the code bellow here, because it does not work if we add it to component's sass. Kendo does not add the attribute of component identification to it's tags
+
+//.wizard-wrapper, ti-dynamic-form, .simple-coding, .user-preferences-block
+//  .k-panelbar
+//    .k-item
+//      .k-icon.k-i-arrow-s:before
+//        content: '\f107'
+//      .k-icon.k-i-arrow-n:before
+//        content: '\f106'
+//      .k-i-calendar:before
+//        content: '\f073'
+//      .k-header
+//        height: 40px
+//      .k-link
+//        padding: 15px 5px
+//        font-weight: bold
+//      .k-content
+//        border-bottom: none
+//        padding-bottom: 0
+
+//ti-dynamic-form, .simple-coding
+//  .k-i-arrow-n
+//    transform: rotate(90deg)
+//  .k-icon.k-i-arrow-s:before
+//    color: $blue
+//
+//ti-create-new-review, ti-create-audit-profile
+//  .k-form
+//    .k-dropdown
+//      border-width: 1px
+//      font-weight: bold
+//      & > .k-dropdown-wrap:hover
+//        background-color: inherit
+//      .k-select .k-icon:before
+//        font-size: 12px
+//        color: $blue
+//      &.no-border
+//        border: none
+//        font-weight: inherit
+//        .k-dropdown-wrap
+//          background-color: transparent
+//          .k-select
+//            padding: 0
+//  .create-review-panelbar
+//    .k-dropdown
+//      & > .k-dropdown-wrap:hover
+//        background-color: inherit
+//      .k-input, .k-select .k-icon:before
+//        font-size: 12px
+//      .k-select .k-icon:before
+//        color: $blue
+            //background-color: transparent!important

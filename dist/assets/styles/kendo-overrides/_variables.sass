@@ -1,0 +1,504 @@
+@import "~@progress/kendo-theme-default/scss/mixins/colors"
+@import "bootstrap-overrides"
+@import "~bootstrap/scss/functions"
+@import "../bootstrap-overrides/variables"
+@import "../variables/theme_colors"
+
+// Options
+$enable-rounded: $enable-rounded !default
+$enable-shadows: false
+$enable-gradients: true
+$enable-transitions: $enable-transitions !default
+
+
+// Fonts
+
+/// Base font size across all components.
+$font-size: $font-size-base !default
+/// Font family across all components.
+$font-family: $font-family-base !default
+/// Font family for monospaced text. Used for styling the code.
+$font-family-monospace:  $font-family-monospace !default
+
+$font-size-xs: 0.75 * $font-size-base !default
+$font-size-sm: $font-size-sm !default
+$font-size-lg: $font-size-lg !default
+/// Line height used along with $font-size.
+$line-height: $line-height-base !default
+$line-height-sm: $line-height-sm !default
+$line-height-lg: $line-height-lg !default
+$line-height-em: $line-height * 1em
+
+// Metrics
+$spacer: $spacer !default
+$spacer-x: $spacer !default
+$spacer-y: $spacer !default
+
+$padding-x: $spacer !default
+$padding-y: $spacer / 2 !default
+$padding-x-sm: $padding-x / 2 !default
+$padding-y-sm: $padding-y / 2 !default
+$padding-x-lg: $padding-x * 1.5 !default
+$padding-y-lg: $padding-y * 1.5 !default
+
+/// Border radius for all components.
+$border-radius: $border-radius !default
+$border-radius: 0
+
+$border-radius-sm: $border-radius-sm !default
+$border-radius-sm: 0
+
+$border-radius-lg: $border-radius-lg !default
+$border-radius-lg: 0
+
+
+$panel-padding-x: $card-spacer-x !default
+$panel-padding-y: $card-spacer-y !default
+
+$popup-padding-x: 0 !default
+$popup-padding-y: $dropdown-padding-y !default
+
+$header-padding-x: $card-spacer-x !default
+$header-padding-y: $card-spacer-y !default
+
+$form-line-height: $input-btn-line-height !default
+$form-line-height: 1
+
+$form-line-height-em: $form-line-height * 1em !default
+
+$button-padding-x: $input-btn-padding-x !default
+$button-padding-y: $input-btn-padding-y !default
+$button-padding-x-sm: $input-btn-padding-x-sm !default
+$button-padding-y-sm: $input-btn-padding-y-sm !default
+$button-calc-size: #{$form-line-height-em} + #{$button-padding-y * 2} + 2px
+$button-inner-calc-size: #{$form-line-height-em} + #{$button-padding-y * 2}
+
+$input-padding-x: $input-btn-padding-x !default
+$input-padding-x: .4167rem
+
+$input-padding-y: $input-btn-padding-y !default
+$input-padding-y: .4167rem
+
+
+$input-padding-x-sm: $input-btn-padding-x-sm !default
+$input-padding-y-sm: $input-btn-padding-y-sm !default
+$input-calc-size: #{$form-line-height-em} + #{$input-padding-y * 2} + 2px
+$input-inner-calc-size: #{$form-line-height-em} + #{$input-padding-y * 2}
+
+/// The horizontal padding of the container.
+/// @group toolbar
+$toolbar-padding-x: $table-cell-padding / 2 !default
+
+/// The vertical padding of the container.
+/// @group toolbar
+$toolbar-padding-y: $table-cell-padding / 2 !default
+
+$toolbar-calc-size: #{$button-calc-size} + #{$toolbar-padding-y * 2} + 2px
+$toolbar-inner-calc-size: #{$button-calc-size} + #{$toolbar-padding-y * 2}
+
+$list-item-padding-x: $dropdown-item-padding-x !default
+$list-item-padding-y: 3px !default
+
+$nav-item-margin: 0 !default
+$nav-item-padding-x: $padding-x !default
+$nav-item-padding-y: $padding-y !default
+
+$cell-padding-x: $table-cell-padding !default
+$cell-padding-y: $table-cell-padding !default
+$cell-padding: $table-cell-padding !default
+$cell-padding-sm: $table-cell-padding-sm !default
+
+$window-inner-padding-x: $modal-inner-padding !default
+$window-inner-padding-y: $modal-inner-padding !default
+$window-titlebar-padding-x: $modal-header-padding !default
+$window-titlebar-padding-y: $modal-header-padding !default
+
+$progressbar-height: $progress-height !default
+
+$zindex-popup: 1
+$zindex-window: 2
+
+$rgba-transparent: rgba( 0, 0, 0, 0 )
+
+
+// Theme colors
+/// The color that focuses the user attention.
+/// Used for primary buttons and for elements of primary importance across the theme.
+$accent: $primary !default
+
+/// The color used along with the accent color denoted by $accent.
+/// Used to provide contrast between the background and foreground colors.
+$accent-contrast: contrast-wcag( $accent ) !default
+
+/// The color for error messages and states.
+$success: $success !default
+/// The color for warning messages and states.
+$info: $info !default
+/// The color for success messages and states.
+$warning: $warning !default
+/// The color for informational messages and states.
+$error: $danger !default
+
+$color-level-step: $theme-color-interval !default
+
+$text-color: $body-color !default
+$bg-color: $body-bg !default
+
+$border-color: try-darken( $bg-color, 12% ) !default
+$border-color: $light-gray
+
+/// The background of the components' chrome area.
+$base-bg: try-darken( $component-bg, 3% ) !default
+/// The text color of the components' chrome area.
+$base-text: $component-color !default
+/// The border color of the components' chrome area.
+$base-border: try-darken( $base-bg, 3% ) !default
+/// The gradient background of the components' chrome area.
+$base-gradient: false !default
+
+/// The background of hovered items.
+$hovered-bg: try-darken( $base-bg, 3% ) !default
+/// The text color of hovered items.
+$hovered-text: $base-text !default
+/// The border color of hovered items.
+$hovered-border: try-darken( $base-border, 12% ) !default
+/// The gradient background of hovered items.
+$hovered-gradient: false !default
+
+/// The background of selected items.
+$selected-bg: $accent !default
+/// The text color of selected items.
+$selected-text: contrast-wcag( $selected-bg ) !default
+/// The border color of selected items.
+$selected-border: try-darken( $selected-bg, 12% ) !default
+/// The gradient background of selected items.
+$selected-gradient: false !default
+
+$transition: color .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease !default
+
+$invalid-border: $error !default
+
+$gradient-transparent-to-black: rgba( black, 0), black
+$gradient-transparent-to-white: rgba( white, 0), white
+$gradient-black-to-transparent: black, rgba( black, 0)
+$gradient-white-to-transparent: white, rgba( white, 0)
+
+$gradient-rainbow: #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000
+
+
+
+
+// Component
+$componet-bg: $component-bg !default
+$componet-text: $component-color !default
+$componet-border: $component-border-color !default
+
+// Widget
+$widget-bg: $component-bg !default
+$widget-text: $component-color !default
+$widget-border: $component-border-color !default
+
+// Panel
+$panel-text: $card-color !default
+$panel-bg: $card-bg !default
+$panel-border: $card-border-color !default
+
+$panel-text: #444
+$panel-bg: #fff
+$panel-border: transparent
+
+// Popup
+$popup-text: $dropdown-link-color !default
+$popup-bg: $dropdown-bg !default
+$popup-border: $dropdown-border-color !default
+
+// Header
+$header-text: $card-cap-color !default
+$header-bg: $card-cap-bg !default
+$header-border: try-darken( $header-bg, 9 ) !default
+$header-gradient: false !default
+
+$header-hovered-text: $header-text !default
+$header-hovered-bg: try-darken( $header-bg, 3 ) !default
+$header-hovered-border: $header-border !default
+$header-hovered-gradient: false !default
+
+$header-selected-text: $selected-text !default
+$header-selected-bg: $selected-bg !default
+$header-selected-border: $selected-border !default
+$header-selected-gradient: false !default
+
+// Button
+$button-bg: $secondary
+$button-text: $color-labels
+$button-border: transparent
+$button-border-width: 0
+$button-gradient:  to bottom, $input-background-color, $light-gray
+$button-shadow: none
+$button-hovered-bg: rgba(165, 166, 170, 0.83)
+$button-hovered-text: $color-labels
+$button-hovered-border: transparent
+$button-hovered-gradient: to bottom, $input-background-color, #bbbbbb
+$button-hovered-shadow: none
+$button-pressed-bg: rgba(107, 108, 110, 0.68)
+$button-pressed-text: $color-labels
+$button-pressed-border: transparent
+$button-pressed-gradient: to bottom, #bbbbbb, #818181
+$button-pressed-shadow: none
+$button-focused-shadow: none
+
+// Primary button
+$primary-button-bg: #a3d7f0
+$primary-button-text: $white
+$primary-button-border: transparent
+$primary-button-gradient: to bottom, #a3d7f0, #6aaedc
+//$primary-button-hovered-bg: rgba(163, 215, 240, 0.72)
+$primary-button-hovered-bg: $dark-blue-icon
+$primary-button-hovered-text: $white
+$primary-button-hovered-border: transparent
+//$primary-button-hovered-gradient: to bottom, #97c7de, #35576e
+$primary-button-hovered-gradient: none
+$primary-button-pressed-bg: rgba(141, 191, 216, 0.96)
+$primary-button-pressed-text: $white
+$primary-button-pressed-border: transparent
+$primary-button-pressed-gradient: to bottom, #7ca4b7, #192934
+$primary-button-pressed-shadow: none
+$primary-button-focused-shadow: none
+
+
+// Toolbar
+$toolbar-text: $header-text !default
+$toolbar-bg: $header-bg !default
+$toolbar-border: $header-border !default
+$toolbar-gradient: false !default
+
+
+// Input
+$input-text: $input-color !default
+$input-bg: $input-bg !default
+$input-border: $input-border-color !default
+$input-shadow: none !default
+
+$input-hovered-text: $input-text !default
+$input-hovered-bg: $input-bg !default
+$input-hovered-border: $input-border !default
+$input-hovered-shadow: none !default
+
+$input-focused-text: $input-text !default
+$input-focused-bg: $input-bg !default
+
+$input-focused-border: try-lighten( $accent, 25 ) !default
+$input-focused-border: $link-color
+
+$input-focused-shadow: none !default
+
+
+// Link
+$link-text: $link-color !default
+$link-hover-text: $link-hover-color !default
+
+
+// Node
+$node-text: $base-text !default
+$node-bg: $base-bg !default
+$node-border: $base-border !default
+$node-gradient: false !default
+
+$node-hovered-text: $list-group-hover-color !default
+$node-hovered-bg: $list-group-hover-bg !default
+$node-hovered-bg: $white-gray
+$node-hovered-border: $node-hovered-bg !default
+$node-hovered-gradient: false !default
+
+$node-selected-text: $selected-text !default
+$node-selected-text: inherit
+
+$node-selected-bg: $selected-bg !default
+$node-selected-bg: transparent
+
+$node-selected-border: $selected-border !default
+$node-selected-border: transparent
+
+$node-selected-gradient: false !default
+
+
+// List item
+$list-item-text: $panel-text !default
+$list-item-bg: $panel-bg !default
+
+$list-item-hovered-text: $dropdown-link-hover-color !default
+$list-item-hovered-bg: $dropdown-link-hover-bg !default
+
+$list-item-selected-text: $dropdown-link-active-color !default
+$list-item-selected-bg: $dropdown-link-active-bg !default
+
+$list-item-focused-shadow: none
+
+
+// Tab
+$tab-item-text: $link-text !default
+$tab-item-text: $dark-blue-icon
+$tab-item-bg: transparent !default
+$tab-item-border: $nav-tabs-border-color !default
+$tab-item-border: $dark-blue-icon
+$tab-item-hovered-text: $link-hover-text !default
+
+$tab-item-hovered-bg: transparent !default
+$tab-item-hovered-border: $nav-tabs-link-hover-border-color !default
+$tab-item-hovered-border: $dark-blue-icon
+$tab-item-selected-text: $nav-tabs-link-active-color !default
+
+$tab-item-selected-bg: $nav-tabs-link-active-bg !default
+$tab-item-selected-border: $nav-tabs-link-active-border-color !default
+$tab-item-selected-border: $dark-blue-icon
+
+// Grid
+$grid-bg: $table-bg !default
+$grid-text: $table-color !default
+$grid-border: $table-border-color !default
+
+$grid-alt-text: $grid-text !default
+$grid-alt-bg: rgba( $grid-alt-text, .03) !default
+$grid-alt-border: $grid-border
+
+$grid-hovered-text: $grid-text !default
+$grid-hovered-bg: rgba( $grid-hovered-text, .065) !default
+$grid-hovered-border: $grid-border !default
+
+$grid-header-bg: $header-bg !default
+$grid-header-bg: $pale-blue
+$grid-header-text: $header-text !default
+$grid-header-border: $header-border !default
+
+
+//Pager
+$pager-text: $pagination-color !default
+$pager-bg: $pagination-bg !default
+$pager-border: $pagination-border-color !default
+
+$pager-hover-text: $pagination-hover-color !default
+$pager-hover-bg: $pagination-hover-bg !default
+$pager-hover-border: $pagination-hover-border-color !default
+
+$pager-selected-text: $pagination-active-color !default
+$pager-selected-bg: $pagination-active-bg !default
+$pager-selected-border: $pagination-active-border-color !default
+
+// Notification
+$notification-info-bg: color-level($info, 10) !default
+$notification-info-text: color-level($info, -6) !default
+$notification-info-border: color-level($info, 9) !default
+$notification-success-bg: color-level($success, 10) !default
+$notification-success-text: color-level($success, -6) !default
+$notification-success-border: color-level($success, 9) !default
+$notification-warning-bg: color-level($warning, 10) !default
+$notification-warning-text: color-level($warning, -6) !default
+$notification-warning-border: color-level($warning, 9) !default
+$notification-error-bg: color-level($error, 10) !default
+$notification-error-text: color-level($error, -6) !default
+$notification-error-border: color-level($error, 9) !default
+
+
+// Window
+$window-text: $modal-content-color !default
+$window-bg: $modal-content-bg !default
+$window-border: $modal-content-border-color !default
+
+$window-titlebar-text: $modal-header-color !default
+$window-titlebar-bg: $modal-header-bg !default
+$window-titlebar-border: $modal-header-border-color !default
+
+
+// Progress
+$progress-bg: $progress-bg !default
+$progress-text: $progress-color !default
+$progress-border: transparent !default
+$progress-gradient: false !default
+
+$progress-fill-bg:  $progress-bar-bg !default
+$progress-fill-text: $progress-bar-color !default
+$progress-fill-border: transparent !default
+$progress-fill-gradient: false !default
+
+
+// Chart
+/// The color of the first series.
+/// @group charts
+$series-a: #0275d8 !default
+
+/// The color of the second series.
+/// @group charts
+$series-b: #5bc0de !default
+
+/// The color of the third series.
+/// @group charts
+$series-c: #5cb85c !default
+
+/// The color of the fourth series.
+/// @group charts
+$series-d: #f0ad4e !default
+
+/// The color of the fifth series.
+/// @group charts
+$series-e: #e67d4a !default
+
+/// The color of the sixth series.
+/// @group charts
+$series-f: #d9534f !default
+
+$chart-font-size: $font-size !default
+$chart-font-size-sm: 11px !default
+$chart-font-size-md: 12px !default
+$chart-font-size-lg: 16px !default
+
+$chart-inactive: rgba( $text-color, .5 ) !default
+
+/// The color of the Chart grid lines (major).
+/// @group charts
+$chart-major-lines: rgba(0, 0, 0, .08) !default
+
+/// The color of the Chart grid lines (minor).
+/// @group charts
+$chart-minor-lines: rgba(0, 0, 0, .04) !default
+
+$chart-area-opacity: .8 !default
+
+//Icons
+$icon-size: 20px
+$icon-size-lg: 32px
+$icon-spacing: ($spacer / 2) !default
+
+$disabled-opacity: .65 !default
+
+//Splitter
+//$splitter-splitbar-size: 8px !default
+$splitter-splitbar-size: 0.6rem !default
+//$splitter-resize-icon-size: 10px !default
+$splitter-resize-icon-size: 0.6rem !default
+//$splitter-drag-handle-length: 20px !default
+$splitter-drag-handle-length: 0.6rem !default
+//$splitter-drag-handle-thickness: 2px !default
+$splitter-drag-handle-thickness: 0.6rem !default
+//$splitter-drag-icon-margin: 7px !default
+$splitter-drag-icon-margin: 0rem !default
+$splitter-bar-collapsed-width: 2rem !default
+$splitter-collapse-icon-width: 1.5rem !default
+
+
+//$splitter-text: $button-text
+$splitter-text: $primary !default
+//$splitter-bg: darken($button-bg, 5) !default
+$splitter-bg: $white !default
+//$splitter-hovered-text: $button-hovered-text
+$splitter-hovered-text: $button-hovered-text !default
+//$splitter-hovered-bg: darken($button-hovered-bg, 5) !default
+$splitter-hovered-bg: darken($button-hovered-bg, 5) !default
+$splitter-splitbar-border-size: $border-width
+$splitter-border-color: $border-color
+
+//compatibility fixes
+$card-padding-x: 16 !default
+$card-padding-y: 12 !default
+
+// import any default values from kendo-theme-default
+@import "~@progress/kendo-theme-default/scss/variables"

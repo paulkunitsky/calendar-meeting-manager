@@ -1,0 +1,84 @@
+@import "~@progress/kendo-theme-bootstrap/scss/combobox"
+@import "../variables/theme_colors"
+
+.k-combobox
+  width: auto
+  height: 23px
+  min-width: 120px
+  .k-select
+    background: $white
+    .k-icon
+      display: inline-block
+      font: normal normal normal 1.167rem/1 FontAwesome
+      font-size: 18px
+      text-rendering: auto
+      -webkit-font-smoothing: antialiased
+      -moz-osx-font-smoothing: grayscale
+      margin-right: 1px
+      &:before
+        content: "\f107"
+        color: $dark-blue-icon
+  // Selected state
+  .k-state-active, .k-state-focused, &:hover
+    .k-select
+      background: $dark-blue-icon
+      .k-icon
+        &:before
+          color: inherit
+  // Clear button
+  .k-dropdown-wrap
+    .k-input
+      border: none
+      box-shadow: none
+    &.k-state-disabled
+      border-style: dashed
+      .k-input[disabled]
+        border: none
+    &.k-state-focused
+      border-color: $input-border
+      .k-select
+        background-color: inherit
+        background-image: none
+
+    > .k-i-close,
+    > .k-i-group-delete::before
+      right: 25px
+  &.k-combobox-clearable
+    .k-input
+      padding-right: 20px
+      font-weight: bold
+
+.k-widget.k-combobox
+  &:hover
+    .k-dropdown-wrap
+      .k-select
+        background-color: inherit
+        background-image: none
+
+//This class represents container class for combobox items and should be attach via popupSettings
+/deep/.kendo-combobox-list
+  padding: 0
+  margin: 0
+  .k-list
+    .k-item
+      padding: 5px
+      line-height: 1
+      color: $color-labels
+      background: $white
+    .k-item:hover
+      background: $white-gray
+    .k-state-focused, .k-state-selected
+      box-shadow: none
+      // background: $light-gray
+    .k-state-selected
+      font-weight: bold
+
+.k-list .k-item.k-state-focused.k-state-selected
+  box-shadow: none
+  // background: $light-gray
+
+
+.k-popup.no-items-padding
+  kendo-list
+    .k-item
+      padding: 0

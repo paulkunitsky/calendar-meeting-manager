@@ -1,0 +1,29 @@
+@mixin text($font-size, $font-style: normal, $font-weight: normal, $color: $text-mid-grey-color)
+  font-size: $font-size
+  font-style: $font-style
+  font-weight: $font-weight
+  color: $color
+
+@mixin text-explanation-descriptor($font-style: normal, $font-weight: normal)
+  @include text($font-size: $text-expl-descr-size, $font-style: $font-style, $font-weight: $font-weight)
+
+@mixin text-communication($font-style: normal, $font-weight: normal)
+  @include text($font-size: $text-communication-size, $font-style: $font-style, $font-weight: $font-weight)
+
+@mixin text-standard($font-style: normal, $font-weight: normal)
+  @include text($font-size: $text-standard-size, $font-style: $font-style, $font-weight: $font-weight)
+
+@mixin text-fillable-field($font-style: normal, $font-weight: normal)
+  @include text($font-size: $text-fillable-field-size, $font-style: $font-style, $font-weight: $font-weight)
+
+@mixin text-header-dialogue_box($font-style: normal, $font-weight: normal)
+  @include text($font-size: $text-header-dialogue_box-size, $font-style: $font-style, $font-weight: $font-weight)
+
+@mixin text-health-infographic-disc()
+  @include text($font-size: $text-health-infographic-disc, $font-weight: lighter)
+
+@mixin text-infographic-disc()
+  @include text($font-size: $text-header-dialogue_box-size, $font-style: normal, $font-weight: lighter)
+
+@mixin text-btn($font-size)
+  @include text($font-size: $font-size, $font-style: normal, $font-weight: bold)

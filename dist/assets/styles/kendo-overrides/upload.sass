@@ -1,0 +1,64 @@
+@import "~@progress/kendo-theme-bootstrap/scss/upload"
+
+.k-upload
+  &.k-dropzone-big
+    border: none
+    kendo-upload-status-total
+      display: none
+    .k-dropzone
+      .k-upload-button
+        background: $white
+        border: none
+        height: 100%
+        width: 100%
+        margin: 0
+        padding: 0
+        box-shadow: none
+        input
+          height: 100%
+          width: 100%
+        span
+          margin-top: 150px
+          margin-bottom: 125px
+          position: relative
+          color: $black
+          &:before
+            content: '\f01a'
+            font-size: 50px
+            font-family: 'FontAwesome'
+            position: absolute
+            line-height: 50px
+            width: 50px
+            margin-top: -75px
+            margin-left: -25px
+            left: 50%
+            top: 0
+
+
+.k-upload
+  .k-action-buttons
+    justify-content: center
+    padding: 15px
+    .k-button
+      width: auto
+      flex: 0
+      padding: 5px 15px
+      border: none
+      &:not(:first-child)
+        margin-left: 5px
+
+/* todo: variables */
+.add-attachment
+  background-color: white
+  .k-dropzone
+    background-color: white
+    .k-upload-button
+      right: 0
+      position: absolute
+      top: 0
+      color: $white
+      background-color: $dark-blue-icon
+      border-color: transparent
+    .k-upload-button:hover
+      background-image: none
+      background-color: $dark-blue-icon

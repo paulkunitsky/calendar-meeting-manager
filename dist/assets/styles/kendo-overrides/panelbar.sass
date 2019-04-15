@@ -1,0 +1,193 @@
+@import "~@progress/kendo-theme-bootstrap/scss/panelbar"
+@import "../variables/theme_colors"
+
+.k-panelbar
+  .k-header
+    font-family: "Montserrat"
+    font-size: 1.167rem
+  perfect-scrollbar
+    padding: 0 15px
+  .k-content
+    padding: 15px 0
+    border-bottom: 1px solid $light-gray
+  & > .k-item
+    border: none
+    & > .k-link
+      color: $dark-gray
+      border-color: $light-gray
+      // border-width: 0 0 1px 0
+      background-color: $white
+      transition: color 0s ease
+      outline: none
+      box-shadow: none
+      padding: 15px
+      border-bottom: 1px solid $light-gray
+      @at-root
+        .blue-title#{&}
+          font-weight: bold
+          &.k-header
+            color: $dark-blue-icon
+      &:hover
+        color: inherit
+        background-color: transparent
+        border-color: $light-gray
+      &.k-state-selected
+        color: $dark-gray
+        background-color: $white
+      &.k-state-selected.k-state-focused, &.k-state-focused, &.k-state-focused:hover
+        box-shadow: none
+
+    .k-panelbar-expand, .k-panelbar-collapse
+      margin-top: -10px
+      right: 0
+    .k-item
+      .k-link
+        padding: 5px
+    .k-icon
+      color: $dark-gray
+      font-family: 'FontAwesome'
+      font-weight: normal
+      &.k-i-arrow-s:before
+        content: '\f078'
+      &.k-i-arrow-n:before
+        content: '\f068'
+        margin-left: 2px
+      &.k-i-arrow-s, &.k-i-arrow-n
+        width: 1.667rem
+        height: 1.667rem
+        -moz-osx-font-smoothing: grayscale
+        -webkit-font-smoothing: antialiased
+        font-size: 1.667rem
+        font-style: normal
+        font-variant: normal
+        font-weight: normal
+        line-height: 1
+        speak: none
+        text-transform: none
+        text-decoration: none
+        display: inline-block
+        vertical-align: middle
+        text-rendering: auto
+  &.panelbar-more-less
+    padding: 15px 0 !important
+    kendo-panelbar-item
+      .k-link.k-header
+        justify-content: flex-end
+        padding: 0 40px 0 0
+        color: $dark-blue-icon!important
+        border: transparent
+        font-size: 16px !important
+        &:before
+          content: ''
+          position: absolute
+          top: 50%
+          left: 0
+          right: 100px
+          border-bottom: 1px solid $light-gray
+        .k-icon
+          color: $dark-blue-icon
+          &.k-i-arrow-n:before
+            content: '\f077'
+
+.wizard-wrapper
+  > .k-panelbar > .k-item > .k-link
+    color: $dark-blue-icon
+    font-weight: bold
+
+//we insert the code bellow here, because it does not work if we add it to component's sass. Kendo does not add the attribute of component identification to it's tags
+ti-create-new-review
+  .k-panelbar .k-header
+    font-family: inherit
+  .k-panelbar > .k-item
+    & > .k-link
+      padding: 15px 0
+      font-family: "Open Sans"
+      font-weight: bold
+      font-size: 15px
+
+  .create-review-panelbar
+    & >.k-grid
+      & > .k-link
+        border: none
+        padding: 0
+        background-color: inherit
+        font-size: 12px
+
+
+
+
+
+
+
+
+.k-panelbar.timeline .k-item
+  .circle
+    width: 13px
+    height: 13px
+    border: 2px solid $dark-blue-icon
+    border-radius: 50%
+    position: relative
+    background: white
+    margin: 3px 5px 0 0
+  &.k-state-expanded
+    .circle
+      background: $dark-blue-icon
+  .k-link
+    cursor: pointer
+    flex-wrap: wrap
+    border-bottom: none
+    align-items: flex-start
+    .title
+      width: calc(100% - 18px)
+      font-size: 12px
+      font-weight: 600
+      color: $dark-gray
+      display: flex
+      justify-content: space-between
+      .right
+        color: $color-labels
+        font-size: 11px
+        font-weight: normal
+    .date
+      width: 100%
+      text-align: right
+      color: $color-labels
+      font-size: 11px
+      margin-left: 17px
+    &::before
+      content: ''
+      border-left: 1px solid $dark-blue-icon
+      position: absolute
+      bottom: 0
+      top: 0
+      left: 21px
+    &:hover
+      background: #f1f9ff
+    .k-panelbar-expand, .k-panelbar-collapse
+      display: none
+  .k-state-focused, .k-state-focused:hover
+    box-shadow: none
+  > div
+    position: relative
+  .k-content
+    padding: 5px 15px 5px 35px
+    border-bottom: none
+    &::before
+      content: ''
+      border-left: 1px solid $dark-blue-icon
+      position: absolute
+      bottom: 0
+      top: 0
+      left: 21px
+    div + div
+      margin-top: 15px
+  &:first-child .k-header
+    &::before
+      top: 25px
+  &:last-child
+    .k-header
+      &::before
+        bottom: calc(100% - 23px)
+    .k-content
+      &::before
+        border-left: none

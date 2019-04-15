@@ -1,0 +1,104 @@
+// http://v4-alpha.getbootstrap.com/components/card/
+@import "../variables/theme_colors"
+
+.card
+  box-shadow: 0 1px 1px 0 $light-gray
+  background-color: $white
+  margin: 30px
+  &-title
+    margin-bottom: 0.4167rem
+  .card-help
+    font-size: 1.667rem !important
+    padding: 5px !important
+
+  .card-link, .card-help
+    color: $dark-blue-icon
+
+  h1, h2, .card-link
+    font-family: 'Montserrat', sans-serif
+
+  h1
+    font-weight: bold
+    margin-bottom: 0
+    font-size: 1.333rem !important // !important should be removed later
+
+    .card-link
+      font-weight: bold
+
+  h2
+    font-size: 1.167rem !important // !important should be removed later
+    font-weight: 500
+
+  .list-group-item
+    padding: 15px
+    &:last-child
+      border-bottom: none
+    &.active
+      color: inherit
+      background-color: rgba(33, 37, 41, 0.03)
+      border-color: rgba(33, 37, 41, 0.03)
+
+  &.notification
+    .list-group
+      padding: 5px
+    //.list-group
+      //height: 300px
+      //overflow-y: auto
+      // three dots
+      //.list-group-item
+      //  span
+      //    &:first-child
+      //      overflow: hidden
+      //      position: relative
+      //      line-height: 1.2em
+      //      max-height: 6.3em
+      //      text-align: justify
+      //      margin-right: -1em
+      //      padding-right: 1em
+      //      &:before
+      //        content: '...'
+      //        position: absolute
+      //        right: 0
+      //        bottom: 0
+      //      &:after
+      //        content: ''
+      //        position: absolute
+      //        right: 0
+      //        width: 1em
+      //        height: 1em
+      //        margin-top: 0.2em
+  &.notification-full
+    .list-group
+      padding: 0
+    .notification-item-title
+      font-size: 1.167rem
+    .notification-item-icon
+      font-size: 20px
+      margin-right: 8px
+
+.card-block, .card-header, .card-footer
+  padding: 15px
+  background-color: $white
+
+.card-header
+  border-bottom: 1px solid $light-gray
+  display: flex
+  justify-content: space-between
+  align-items: center
+  > *
+    display: inline-flex
+
+.card-footer
+  border-top: 1px solid $light-gray
+  display: flex
+  justify-content: center
+
+  > button:not(:first-child)
+    margin-left: 15px
+
+  .list-pagination
+    button, input, .fa, .total
+      margin-right: 5px
+    .fa.order-1
+      margin-right: 0
+      margin-left: 5px

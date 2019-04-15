@@ -1,0 +1,268 @@
+@import "~@progress/kendo-theme-bootstrap/scss/splitter"
+@import 'theme_colors.sass'
+
+%k-splitbar-text-horizontal
+  visibility: hidden
+  position: absolute
+  font-size: 11px
+  transform: rotate(-270deg)
+  font-family: 'Open Sans', sans-serif
+  top: 45px
+  right: -4px
+  font-weight: bold
+
+%k-splitbar-text-vertical
+  visibility: hidden
+  position: absolute
+  font-size: 11px
+  font-family: 'Open Sans', sans-serif
+  top: 4px
+  left: 30px
+  font-weight: bold
+
+$splitbar-icon-size: 15px
+
+$splitbar-background: #E7ECF1
+
+.k-pane.k-state-hidden.collapsed
+  display: none !important
+
+.ti-k-grow-space-pane
+  flex-grow: 1 !important
+
+.k-splitbar
+  z-index: 1
+  .top-arrow-wrapper
+    position: absolute
+    transition: width 0.1s ease-out, height 0.1s ease-out
+  .splitter-bar-wrapper
+    position: absolute
+    width: 100%
+    height: 100%
+    background-color: $splitbar-background
+    border: 1px solid $input-border
+    transition: width 0.1s ease-out, height 0.1s ease-out
+  &.k-splitbar-horizontal
+    .top-arrow-wrapper
+      width: 100%
+      top: 0
+    .splitter-bar-wrapper
+      &.shortened-splitter-bar-wrapper
+        height: calc(100% - 75px)
+        bottom: 0
+  &.k-splitbar-vertical
+    .top-arrow-wrapper
+      height: 100%
+      left: 0
+    .splitter-bar-wrapper
+      &.shortened-splitter-bar-wrapper
+        width: calc(100% - 75px)
+        right: 0
+
+
+.k-splitbar.k-splitbar-horizontal
+  position: relative
+  .k-collapse-open
+    .k-splitbar-hide-text
+      @extend %k-splitbar-text-horizontal
+    .k-splitbar-open-text
+      display: none
+  .k-collapse-hide
+    .k-splitbar-open-text
+      @extend %k-splitbar-text-horizontal
+    .k-splitbar-hide-text
+      display: none
+  .k-i-arrow-60-left.k-collapse-open,
+  .k-i-arrow-60-right.k-collapse-hide
+    border-radius: 0 18px 0 0
+  .k-i-arrow-60-left.k-collapse-hide,
+  .k-i-arrow-60-right.k-collapse-open
+    border-radius: 18px 0 0 0
+
+.k-splitbar.k-splitbar-vertical
+  position: relative
+  .k-collapse-open
+    .k-splitbar-hide-text
+      @extend %k-splitbar-text-vertical
+    .k-splitbar-open-text
+      display: none
+  .k-collapse-hide
+    .k-splitbar-open-text
+      @extend %k-splitbar-text-vertical
+    .k-splitbar-hide-text
+      display: none
+
+.k-ghost-splitbar-horizontal,
+.k-splitbar-horizontal
+  width: $splitter-splitbar-size
+
+.k-ghost-splitbar-vertical,
+.k-splitbar-vertical
+  position: relative
+  height: $splitter-splitbar-size
+
+.k-splitbar .k-icon
+  font-family: 'FontAwesome'
+  font-size: 15px
+
+.k-splitbar .spliter-bar-label
+  position: absolute
+  font-size: 15px
+  color: $dark-blue-icon
+  visibility: hidden
+  white-space: nowrap
+
+.k-splitbar-horizontal .spliter-bar-label
+  top: 5px
+  right: 0
+  left: 0
+  transform: rotate(90deg)
+
+.k-splitbar-horizontal i + .spliter-bar-label
+  top: 25px
+
+.k-splitbar-vertical .spliter-bar-label
+  left: 5px
+  top: 0
+  bottom: 0
+
+.k-splitbar-vertical i + .spliter-bar-label
+  left: 25px
+
+.k-splitbar .k-resize-handle
+  position: absolute
+  background-color: $dark-blue-icon
+  width: 50px
+  height: 1px
+  top: 50%
+  left: calc(50% - 25px)
+  &::after, &::before
+    content: ''
+    position: absolute
+    width: 50px
+    height: 1px
+    background-color: $dark-blue-icon
+    left: 0
+  &::after
+    top: 3px
+  &::before
+    top: -3px
+
+.k-splitbar-horizontal .k-resize-handle
+  transform: rotate(90deg)
+
+.k-splitter
+  .k-pane.collapsed ~ .k-splitbar
+    .k-icon.k-collapse-prev, .k-icon.k-collapse-next
+      &:after
+        color: $primary
+
+.k-splitbar .k-icon
+  color: $white
+  font-size: $splitter-collapse-icon-width
+  cursor: pointer
+
+.k-splitbar.k-splitbar-hidden
+  width: 0
+  height: 0
+  overflow: hidden
+  border-width: 0
+
+.k-i-arrow-60-left::before, .k-i-arrow-w::before, .k-i-sarrow-w::before, .k-i-expand-w::before
+  content: "\f0a8"
+
+.k-i-arrow-60-right::before, .k-i-arrow-e::before, .k-i-sarrow-e::before, .k-i-expand::before, .k-i-expand-e::before
+  content: "\f0a9"
+
+.k-i-arrow-60-up::before, .k-i-arrow-n::before, .k-i-sarrow-n::before, .k-i-expand-n::before
+  content: "\f0aa"
+
+.k-i-arrow-60-down::before, .k-i-arrow-n::before, .k-i-sarrow-n::before, .k-i-expand-n::before
+  content: "\f0ab"
+
+.k-splitbar
+  &.k-splitbar-draggable-horizontal, &.k-splitbar-draggable-vertical, &.collapsible
+    &:active, &:hover, &.collapsed
+      background-color: transparent
+      .k-icon,
+      .k-resize-handle
+        .k-splitbar-open-text,
+        .k-splitbar-hide-text,
+        &:before,
+        &:after
+          visibility: visible
+          color: $white
+      i
+        visibility: visible
+      .spliter-bar-label
+        visibility: visible
+
+.k-splitbar.k-splitbar-horizontal
+  &.k-splitbar-draggable-horizontal, &.collapsible
+    &:active, &:hover, &.collapsed
+      .splitter-bar-wrapper, .top-arrow-wrapper
+        width: 20px
+        &.direction-left
+          right: 0
+        &.direction-right
+          left: 0
+    &.collapsed
+      width: 20px
+
+.k-splitbar.k-splitbar-vertical
+  &.k-splitbar-draggable-vertical, &.collapsible
+    &:active, &:hover, &.collapsed
+      .splitter-bar-wrapper, .top-arrow-wrapper
+        height: 20px
+    &.collapsed
+      height: 20px
+
+/*TI-Kendo layouts*/
+.ti-k-layout
+  border-top: none
+  height: 100%
+  width: 100%
+.k-splitter
+  height: 100%
+  width: 100%
+.k-splitbar
+  .top-arrow
+    position: absolute
+    background-color: $dark-blue
+    cursor: pointer
+    &:before
+      visibility: hidden
+      font-size: $splitbar-icon-size
+      line-height: $splitbar-icon-size
+      position: absolute
+  i
+    visibility: hidden
+    font-size: 13px
+    color: $dark-blue-icon
+    line-height: 2rem
+    position: absolute
+    display: flex
+    align-items: center
+    justify-content: center
+    text-align: center
+  &.k-splitbar-horizontal
+    .top-arrow
+      width: 100%
+      height: 75px
+      top: 0
+      &:before
+        right: 3px
+        top: 12px
+    i
+      width: 100%
+  &.k-splitbar-vertical
+    .top-arrow
+      width: 75px
+      height: 100%
+      left: 0
+      &:before
+        top: 3px
+        left: 6px
+    i
+      height: 100%
+      margin-left: 5px

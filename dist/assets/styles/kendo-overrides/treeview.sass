@@ -1,0 +1,120 @@
+@import "~@progress/kendo-theme-bootstrap/scss/treeview"
+@import 'theme_colors.sass'
+
+$treeview-item-focused-shadow: none
+
+.k-treeview
+  padding: 5px
+  .k-item
+    border-left: 1px solid $light-gray
+    padding: 0
+    .k-group
+      margin-left: 1.25rem
+      &:first-child
+        margin-left: 0
+    .k-treeview-item
+      &:hover
+        border-left: 1px solid $light-gray
+    .k-mid
+      position: relative
+    &:focus
+      outline: 0
+    &[aria-expanded="true"] > .k-mid
+      .k-in
+        font-weight: bold
+  .k-icon
+    display: inline-flex
+    color: $dark-blue-icon
+    font: normal normal normal 14px/1 FontAwesome
+    font-size: inherit
+    text-rendering: auto
+    &.k-i-collapse, &.k-i-expand
+      position: absolute
+      height: 100%
+      align-items: center
+      margin-left: -7px
+      background-color: $white
+      color: $dark-gray
+    &.k-i-collapse
+      &::before
+        content: "\F078"
+      &.k-i-loading
+        &::before
+          content: ""
+    &.k-i-expand
+      &::before
+        content: "\F054"
+    &.k-i-collapse + .k-in, &.k-i-expand + .k-in
+      &:before
+        width: 0
+        margin-right: 0
+  .k-in
+    border: 0
+    &.k-state-focused
+      box-shadow: $treeview-item-focused-shadow
+      outline: 0
+    &.k-state-selected
+      font-weight: bold
+      background-color: $dark-blue
+      color: $white
+      .tree-node-icon
+        color: $white
+      &.k-state-focused
+        box-shadow: $treeview-item-focused-shadow
+        outline: 0
+
+  & > .k-treeview-lines > .k-item
+    border-left: 1px solid transparent
+    & > .k-mid .k-in
+      margin-left: 0.5rem
+      &:before
+        width: 0
+        margin-right: 0
+
+/*Start customizations for treeview with checkboxes*/
+.treeview-with-checkboxes
+  &.k-treeview
+    padding: 5px 15px
+    .k-item
+      .k-mid
+        position: relative
+        margin-left: 5px
+        &:before
+          content: ''
+          position: absolute
+          left: -5px
+          width: 7px
+          border-bottom: 1px solid $light-gray
+      .k-group
+        margin-left: 20px
+    & > .k-treeview-lines > .k-item > .k-mid .k-in
+      margin-left: 5px
+    .k-checkbox-label
+      position: relative
+      margin-left: 5px
+      margin-right: 5px
+      padding-left: 15px
+    .k-in
+      padding-left: 5px
+      &:before
+        width: 0
+    .k-icon.k-i-expand
+      margin-left: -7px
+    .k-icon.k-i-collapse
+      margin-left: -10px
+.treeview-selectable-items
+  .k-in
+    display: flex
+    width: 100%
+    &.k-state-selected
+      background-color: $pale-blue
+.flat
+  &.k-treeview
+    padding-left: 0
+    .k-item
+      .k-mid
+        &:before
+          width: 0
+/*End customizations for treeview with checkboxes*/
+.flat > .k-treeview-lines > .k-item > .k-mid .k-in
+  margin-left: 0

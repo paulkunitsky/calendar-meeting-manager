@@ -1,0 +1,88 @@
+.ti-mask:after,
+.ti-mask-with-header:after {
+  content: '';
+  background: rgba(49, 42, 42, 0.8);
+  width: 100%;
+  position: fixed;
+  left: 0;
+  z-index: 98;
+}
+
+.ti-loading:after,
+.ti-loading-with-header:after {
+  content: 'Loading...';
+  width: 100%;
+  vertical-align: middle;
+  font-family: 'Lato', Geneva, Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  position: fixed;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  /* IE 10 */
+  display: -ms-flexbox;
+  -ms-flex-pack: center;
+  padding-top: 10px;
+  /* */
+  display: flex;
+  color: white;
+  z-index: 98;
+  line-height: 40px;
+  padding-bottom: 20px;
+  /* background-color: rgba(64, 98, 139, 1); */
+  /* background-color: #28ABE3; */
+  background-color: #6AAEDC;
+  opacity: 0.7;
+}
+
+.ti-loading:before,
+.ti-loading-with-header:before {
+  content: '';
+  position: absolute;
+  border: 3px solid rgb(255, 255, 255);
+  border-top-color: transparent;
+  border-radius: 50%;
+  width: 24px;
+  display: inline-block;
+  height: 24px;
+  left: calc(50% - 12px);
+  -webkit-animation: spin 2s linear 0s infinite normal none running;
+  -moz-animation: spin 2s linear 0s infinite normal none running;
+  animation: spin 2s infinite;
+  z-index: 99;
+}
+
+.ti-mask:after,
+.ti-loading:after {
+  top: 0;
+  height: 100%;
+}
+
+.ti-loading-with-header:after {
+  content: '';
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+.ti-mask-with-header:after,
+.ti-loading-with-header:after {
+  top: 50px;
+  height: calc(100% - 50px);
+}
+
+.ti-loading:before {
+  top: calc(50% + 20px);
+}
+
+.ti-loading-with-header:before {
+  top: calc(50% + 70px);
+}
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

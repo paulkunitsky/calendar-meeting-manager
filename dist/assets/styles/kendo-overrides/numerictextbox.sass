@@ -1,0 +1,45 @@
+@import "~@progress/kendo-theme-bootstrap/scss/numerictextbox"
+@import "../variables/theme_colors"
+
+.k-numerictextbox
+  height: 26px
+  &.k-state-focused
+    border: none
+  .k-input
+    background-color: $input-background-color
+    height: 27px
+    font-weight: bold
+    border: 0
+  .k-numeric-wrap
+    width: auto
+    height: 100%
+    .k-input, .k-textbox
+      border: none
+      &:hover
+        border: none
+    .k-select
+      border-width: 0 1px 0 1px
+      border-color: $light-gray
+      .k-link
+        padding: 0px 5px
+        .k-icon
+          color: $dark-blue-icon
+          font-family: FontAwesome
+          font-size: 18px
+          &.k-i-arrow-s::before
+            content: "\f107"
+          &.k-i-arrow-n::before
+            content: "\f106"
+          &:hover
+            color: $dark-blue-icon
+          &:before
+            margin-left: 0
+        &.k-link-increase
+          border-bottom: 1px solid #e4e7eb
+          .k-icon
+            bottom: -2px
+        &.k-link-decrease
+          .k-icon
+            top: -1px
+    &.k-state-disabled
+      border: 0
